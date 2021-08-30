@@ -6,7 +6,10 @@ jobs:
       - image: circleci/node:13.8.0   
     steps:
       - run: return 1
-    when: on_fail
+      - run:
+          name: on error
+          command: echo "Hello Error!"
+          when: on_fail
 workflows:
   my_workflow:  # Define a Workflow 
     # Run the my_job job in its own container
